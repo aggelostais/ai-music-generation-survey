@@ -1,0 +1,82 @@
+html {  }
+canvas {
+  display: block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(31,36,57);
+  /*background: "{{ url_for(('static', filename='images/background.mp4')) }}"*/
+  /*background: : #808080;*/
+  /*background: linear-gradient(95deg, rgba(31,36,57,1) 0%, rgba(17,20,45,1) 51%, rgba(31,36,57,1) 100%); */
+}
+#title{
+
+}
+
+.text {
+  position: relative;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  padding: 2em 3em;
+  min_width: 500px;
+  /*background: rgba(0, 0, 0, 0.6); */
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.block{
+  left: 25%;
+  right: 25%;
+  /*max-width: 90%;*/
+  min_width: 500px;
+  padding: 2em 3em;
+  background: rgba(5, 6, 13, .8); 
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 15px;
+}
+h1 {
+  font-size: 2.25em;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+a,
+a:visited {
+  transition: 0.25s;
+}
+
+a:hover,
+a:focus {
+  color: #ba160c;
+}
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+/* h4{
+  font-style: italic;
+}
+h5{
+  font-style: italic;
+} */
+
+.btn-sm{
+  background-color: transparent;
+}
+#vote_btn{
+  /*border: 2px solid #fff;*/
+}

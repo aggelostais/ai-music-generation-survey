@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" >
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+    <title>AI Piano Composer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/particles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toggle.css') }}">
+</head>
+
+<body style = "background-color: #1F2439;" >
+    <div id="particles-js"></div>
+
+    <div class="text text-center" style="min-width: 600px;">
+        <div id = "title">
+        <h2 style="display: inline">Help us make our </h2>
+        <h1 style="display: inline; color: #5382CA;">AI Piano Music </h1> <h2 style="display: inline"> even better!</h2>
+        </div>
+        <br>
+        <div class = "block text-center" style="min-width: 300px;">
+        <h3>Just listen and answer the questions!</h3>
+        
+        <button type="button" class = 'btn-sm-block' onclick="playbtn()">
+            <img id = 'play_btn' src="{{ url_for('static', filename='images/play.png') }}" alt="Play Button"  height="50" width="50">
+        </button>
+        <!-- Basic Music Knowledge Question -->
+        <div id="basic-question">
+            <br>
+            <h4>Have you heard similar music before?</h4>
+            <label>
+                <input type="radio" name="similar_music" value="1" onclick="change_similar_music()">
+                <img id = "s1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="similar_music" value="2" onclick="change_similar_music()">
+                <img id = "s2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="similar_music" value="3" onclick="change_similar_music()">
+                <img id = "s3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="similar_music" value="4" onclick="change_similar_music()">
+                <img id = "s4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="similar_music" value="5" onclick="change_similar_music()">
+                <img id = "s5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <div class="common-question">
+            <br>
+            <h4>Does this music bring emotions in your mind?</h4>
+            <label>
+                <input type="radio" name="emotions" value="1" onclick="change_emotions()">
+                <img id = "e1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="emotions" value="2" onclick="change_emotions()">
+                <img id = "e2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="emotions" value="3" onclick="change_emotions()">
+                <img id = "e3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="emotions" value="4" onclick="change_emotions()">
+                <img id = "e4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="emotions" value="5" onclick="change_emotions()">
+                <img id = "e5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <!-- Pro Music Knowledge Questions -->
+        <div class="pro-question">
+            <br>
+            <h4>The melody progresses smoothly.</h4>
+            <label>
+                <input type="radio" name="melody" value="1" onclick="change_melody()">
+                <img id = "me1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="melody" value="2" onclick="change_melody()">
+                <img id = "me2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="melody" value="3" onclick="change_melody()">
+                <img id = "me3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="melody" value="4" onclick="change_melody()">
+                <img id = "me4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="melody" value="5" onclick="change_melody()">
+                <img id = "me5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <div class="pro-question">
+            <br>
+            <h4>The harmony is pleasant.</h4>
+            <label>
+                <input type="radio" name="harmony" value="1" onclick="change_harmony()">
+                <img id = "h1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="harmony" value="2" onclick="change_harmony()">
+                <img id = "h2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="harmony" value="3" onclick="change_harmony()">
+                <img id = "h3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="harmony" value="4" onclick="change_harmony()">
+                <img id = "h4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="harmony" value="5" onclick="change_harmony()">
+                <img id = "h5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <div class="pro-question">
+            <br>
+            <h4>The rhythm doesn’t have irregularities.</h4>
+            <label>
+                <input type="radio" name="rhythm" value="1" onclick="change_rhythm()">
+                <img id = "rh1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rhythm" value="2" onclick="change_rhythm()">
+                <img id = "rh2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rhythm" value="3" onclick="change_rhythm()">
+                <img id = "rh3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rhythm" value="4" onclick="change_rhythm()">
+                <img id = "rh4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rhythm" value="5" onclick="change_rhythm()">
+                <img id = "rh5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <div class="common-question">
+            <br>
+            <h4>Is this music composed by human or AI?</h4>
+            <label>
+                <input type="radio" name="creator" value="1" onclick="change_creator()">
+                <img id = "human" src="{{ url_for('static', filename='images/human.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="creator" value="2" onclick="change_creator()">
+                <img id = "ai" src="{{ url_for('static', filename='images/computer.png') }}" weight= "40" height= "40">
+            </label>
+            <br>
+        </div>
+        <div class="common-question">
+            <br>
+            <h4>Music Piece Overall Rating</h4>
+            <label>
+                <input type="radio" name="rating" value="1" onclick="change_rating()">
+                <img id = "r1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rating" value="2" onclick="change_rating()">
+                <img id = "r2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rating" value="3" onclick="change_rating()">
+                <img id = "r3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rating" value="4" onclick="change_rating()">
+                <img id = "r4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="rating" value="5" onclick="change_rating()">
+                <img id = "r5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <br><br>
+        <button id= "next" disabled type="button" class ='button btn btn-md' 
+            onclick="insert()" style="color: black; background-color: white;" 
+            title="Wait a bit to listen what the song has to tell &#013;or take your time to answer all the questions.">
+            Submit <span class="glyphicon glyphicon-menu-right"></span>
+        </button>
+        <br>
+    </div>
+    
+    <div id = "content" style = "line-height: 0.9">
+        <br>
+        <p>For more details about our work press <a href=''>here</a> !</p>
+        <p>This page is based in code from <a href='https://github.com/geofila/site'>Github</a>.</p>
+    </div>
+
+    </div>
+    <div class="footer">
+        <!-- <button id = "help" type="button" onclick="help()"><span class="glyphicon glyphicon-info-sign"></span></button> -->
+        <button id="help" class="btn btn-secondary btn-lg" onclick="help()">
+            <span class="glyphicon glyphicon-info-sign"></span>
+        </button>
+        <!-- <button id = "help" type="button" style="width: 20%; height: 20%;" ><span class="glyphicon glyphicon-info-sign" ></span></button> -->
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <br>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h3 class="modal-title text-center">Help us make our AI Piano Music even better!</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h4>
+                        Hello and welcome aboard!<br>
+                        This is a survey on AI Piano Music, 
+                        helping out our confused music generation models decide 
+                        which is the best. In other words, helping us evaluate 
+                        our models built for automatic piano music composition.
+                        <br><br>
+                        Next, you will listen to parts of some piano songs. Each one of these 
+                        is human composed or generated from a different AI model, 
+                        trained on different training set and having different initial primer sequence.
+                        Don't worry if all these sound greek to you. We will sort it out together!
+                        <br><br>
+                    </h4>
+                    <div style="text-align: center;">
+                        <button type="button" class="btn btn-default" onclick = "start()">Next
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal2 -->
+    <div class="modal fade" id="myModal2" style="overflow-y: auto;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <br>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h3 class="modal-title text-center">Help us make our AI Piano Music even better!</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h4>
+                        <div style="text-align: center;">
+                            <h4>Next step, just 2 small questions about you...</h4>
+                            <br>
+                            <h4> Do you have basic musical knowledge?</h4>
+                            <h5> Do you play any musical instrument? 
+                                <br>Have you even studied in a music conservatory? 
+                                <br>Can you distinguish melody, harmony and rhythm? 
+                                <br>If the answer to any of the questions is yes, hit the happy face!
+                            </h5>
+                            <label>
+                                <input type="radio" id=basic-mus name="musician" value="basic" onclick="change_musician()">
+                                <img id = "m1" src="{{ url_for('static', filename='images/1.png') }}" weight= "60" height= "60">
+                            </label>
+                            <label>
+                                <input type="radio" id=pro-mus name="musician" value="pro" onclick="change_musician()">
+                                <img id = "m5" src="{{ url_for('static', filename='images/5.png') }}" weight= "60" height= "60">
+                            </label>
+                            <br><br>
+                            <h4>Is this music major or minor?</h4>
+                            <h5>If you chose the unhappy face at the previous question,<br> you can just try your luck at this one.</h5>
+                            <button type="button" class = 'center-block' onclick = 'play_helper()'>
+                                <img id = 'play_btn_minor' src="{{ url_for('static', filename='images/playb.png') }}" alt="Play Button"  height="30" width="30">
+                            </button>
+                            <br>
+                                <input type="checkbox" id="Major" name="scale_check" value="major">
+                                <label for="Major">Major</label>
+                                <input type="checkbox" id="Minor" name="scale_check" value="minor">
+                                <label for="Minor">Minor</label>
+                            <br>
+                            <h4 id = "red"> </h4>
+                            <br>
+                            <button type="button" class="btn btn-default" onclick = "next1()">Next
+                                <span class="glyphicon glyphicon-menu-right"></span>
+                           </button>
+                        </div>
+                    </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal3" style="overflow-y: auto;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <br>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h3 class="modal-title text-center">Help us make our AI Piano Music even better!</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h4>At last, what you do on the main page is listen to parts of piano songs (by pressing the play button),
+                        answer some questions and express your agreement or disagreement with some statements. 
+                        After submitting your answers, the page will be refreshed and a new song will start playing.
+                    <br><br>We would appreciate if you evaluated 5-6 songs so you can hear different piano pieces you could like, 
+                    only taking up to 6 minutes of your time! 
+                    However, answering the questions for even one song is pretty important for us.<br><br>
+                    Thank you for your time!</h4>
+                    <div style="text-align: center;">
+                    <br>
+                        <button type="button" class="btn btn-default" onclick = "last()">Let's Begin
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <audio id = "melodies" controls loop style="display: none;">
+        <source src="{{ url_for('static', filename='AGIG512_1261287_1.3616.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> 
+    <audio id = "minor" controls loop style="display: none;">
+        <source src="{{ url_for('static', filename='samples/RG_714710.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> 
+
+    <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vote.js') }}"></script>
+
+<script>
+    var creator = 0;
+    var similar_music = 0;
+    var emotions = 0;
+    var melody = 0;
+    var harmony = 0;
+    var rating = 0;
+    var rhythm = 0;
+    var files;
+    var audio = document.getElementById('melodies');
+    var img = document.getElementById('play_btn');
+    var songs;
+    var musician = 0;
+    var scale_check=0;
+
+    
+    window.onload = function () {
+        $('#myModal').modal('show'); 
+        $("#next").prop('disabled', true); 
+        $.ajax({
+            data : {
+                // network : $("input[name='model']:checked").val(),
+            },
+            url: "/get_melodies",
+            type: "POST",
+            success: function(resp){
+                files = resp.files;
+                songs = shuffle(files);
+                audio.src = "static/samples/" + songs[0];
+                songs.shift();
+            }
+        });
+    };
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        $('#myModal2').modal('show'); 
+    })
+
+    $('#myModal2').on('hidden.bs.modal', function () {
+        var audio = document.getElementById('minor');
+        // If the song is playing pause it
+        if(!audio.paused){
+            play_helper();}
+        // If musical knowledge question hasn't been answered
+        if (musician == 0 || scale_check==0) {
+            $("#red").css("color","#8d0c0c");
+            $('#red').text("Just another small step and off we go!")
+            $('#myModal2').modal('show'); 
+        }
+        else{
+            $('#myModal3').modal('show');
+        }
+    })
+    
+    // Checkbox force check one
+    $('input[type="checkbox"]').on('change', function() {
+        $('input[type="checkbox"]').not(this).prop('checked', false);
+    });
+
+    $('input[type="checkbox"]').click(function(e) { 
+      var checkbox = $(this);
+      if (checkbox.is(":checked")) {
+       //check it 
+      } else {
+       // prevent from being unchecked
+        this.checked=!this.checked;
+      }
+   });
+
+    function start(){        
+        $('#myModal').modal('hide');
+        $('#myModal2').modal('show');
+    }
+    function next1(){
+        $('#myModal2').modal('hide');
+        check_musician();
+        if(musician!=0 && scale_check!=0){
+            $('#myModal3').modal('show');
+        }
+    }
+    function last(){
+        $('#myModal3').modal('hide');
+        // For basic user hide pro questions
+        if(musician=='basic'){
+            // $('#pro-question').modal('hide');
+            var x = document.getElementsByClassName("pro-question");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+        }
+        else{
+            // For pro user hide basic question
+            document.getElementById("basic-question").style.display = "none";
+        }
+    }
+
+    // Help Button
+    function help(){
+        $('#myModal').modal('show'); 
+        // Load the right musician picture based on what used has told
+        if (musician == "basic"){
+            document.getElementById('m1').src = 'static/images/1b.png';
+            document.getElementById('m5').src = 'static/images/5.png';
+        }
+        else {
+            document.getElementById('m1').src = 'static/images/1.png';
+            document.getElementById('m5').src = 'static/images/5b.png';
+        }
+    }
+    
+    // Play major or minor scale test song
+    function play_helper(){
+        var img = document.getElementById('play_btn_minor');
+        var audio = document.getElementById('minor');
+
+        if (audio.duration > 0 && !audio.paused){
+            img.src = "static/images/playb.png";
+            audio.pause();
+        }else{
+            img.src = "static/images/pauseb.png";
+            audio.play();
+        }
+    }
+</script>
+</body>
+</html>
