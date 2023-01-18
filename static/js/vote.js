@@ -116,6 +116,19 @@ function change_rhythm(){
 	make_enable();
 }
 
+function change_genre(){
+	genre = document.querySelector('input[name="genre"]:checked').value;
+	document.getElementById('ge1').src = 'static/images/1w.png';
+	document.getElementById('ge2').src = 'static/images/2.png';
+	document.getElementById('ge3').src = 'static/images/3.png';
+	document.getElementById('ge4').src = 'static/images/4.png';
+	document.getElementById('ge5').src = 'static/images/5.png';
+	if (genre > 1) document.getElementById('ge2').src = 'static/images/2w.png';
+	if (genre > 2) document.getElementById('ge3').src = 'static/images/3w.png';
+	if (genre > 3) document.getElementById('ge4').src = 'static/images/4w.png';
+	if (genre > 4) document.getElementById('ge5').src = 'static/images/5w.png';
+	make_enable();
+}
 function change_rating(){
 	rating = document.querySelector('input[name="rating"]:checked').value;
 	document.getElementById('r1').src = 'static/images/1w.png';
@@ -134,22 +147,15 @@ setInterval(function(){ make_enable() }, 1000);
 // 80% of song duration has to be played to allow to submit the answers
 function make_enable(){
 	if (audio.currentTime>audio.duration*0.8 && creator!=0 && emotions!=0 && rating!=0 && 
-		(similar_music != 0 || (melody!=0 && harmony!=0 && rhythm!=0))){
+		(similar_music != 0 || (melody!=0 && harmony!=0 && rhythm!=0 && genre!=0))){
 		$('#next').prop("disabled", false);
 	}
 }
 
 function insert(){
 	if (!(creator!=0 && emotions!=0 && rating!=0 && 
-		(similar_music != 0 || (melody!=0 && harmony!=0 && rhythm!=0)))){ 
-			console.log(creator)
-			console.log(emotions)
-			console.log(rating)
-			console.log(similar_music)
-			console.log(melody)
-			console.log(harmony)
-			console.log(rhythm)
-			console.log('Entered here by mistake'); return;}
+		(similar_music != 0 || (melody!=0 && harmony!=0 && rhythm!=0 && genre!=0))))
+			return;
 	$.ajax({
         data : {
         	'musician' : musician,
@@ -160,6 +166,7 @@ function insert(){
 			'melody' : melody,
 			'harmony': harmony,
 			'rhythm': rhythm,
+			'genre': genre,
         	'emotions' : emotions,
 			'rating': rating
         },
@@ -228,6 +235,7 @@ function insert(){
 			melody = 0;
 			harmony = 0;
 			rhythm = 0;
+			genre = 0;
 			emotions = 0;
 			rating=0;
 			setTimeout(function (){

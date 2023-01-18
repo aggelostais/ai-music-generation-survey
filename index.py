@@ -23,12 +23,13 @@ def insert():
 	melody = request.form['melody']
 	harmony = request.form['harmony']
 	rhythm = request.form['rhythm']
+	genre = request.form['genre']
 	emotions = request.form['emotions']
 	creator = request.form['creator']
 	rating = request.form['rating']
 
 	if (not(creator!=0 and emotions!=0 and rating!=0 and
-		(similar_music != 0 or (melody!=0 and harmony!=0 and rhythm!=0)))):
+		(similar_music != 0 or (melody!=0 and harmony!=0 and rhythm!=0 and genre!=0)))):
 		return jsonify({'data': 'Open Modal'})
 
 	path = 'static/ratings/' + musician
@@ -42,8 +43,9 @@ def insert():
 			d[song][2].append(melody)
 			d[song][3].append(harmony)
 			d[song][4].append(rhythm)
-			d[song][5].append(creator)
-			d[song][6].append(rating)
+			d[song][5].append(genre)
+			d[song][6].append(creator)
+			d[song][7].append(rating)
 			save_obj(d, path)
 		return jsonify({'data': 'Ok'})
 	except Exception as e:
