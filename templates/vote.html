@@ -82,6 +82,30 @@
         <!-- Pro Music Knowledge Questions -->
         <div class="pro-question">
             <br>
+            <h4>Can you identify the music genre of the piece?</h4>
+            <label>
+                <input type="radio" name="genre" value="1" onclick="change_genre()">
+                <img id = "ge1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="2" onclick="change_genre()">
+                <img id = "ge2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="3" onclick="change_genre()">
+                <img id = "ge3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="4" onclick="change_genre()">
+                <img id = "ge4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="5" onclick="change_genre()">
+                <img id = "ge5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
+        <div class="pro-question">
+            <br>
             <h4>The melody progresses smoothly.</h4>
             <label>
                 <input type="radio" name="melody" value="1" onclick="change_melody()">
@@ -150,30 +174,6 @@
             <label>
                 <input type="radio" name="rhythm" value="5" onclick="change_rhythm()">
                 <img id = "rh5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
-            </label>
-        </div>
-        <div class="pro-question">
-            <br>
-            <h4>Can you identify the music genre of the piece?</h4>
-            <label>
-                <input type="radio" name="genre" value="1" onclick="change_genre()">
-                <img id = "ge1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="2" onclick="change_genre()">
-                <img id = "ge2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="3" onclick="change_genre()">
-                <img id = "ge3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="4" onclick="change_genre()">
-                <img id = "ge4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="5" onclick="change_genre()">
-                <img id = "ge5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
             </label>
         </div>
         <div class="common-question">
@@ -361,7 +361,7 @@
 
 
     <audio id = "melodies" controls loop style="display: none;">
-        <source src="{{ url_for('static', filename='AGIG512_1261287_1.3616.mp3')}}" type="audio/mpeg">
+        <source src="{{ url_for('static', filename='music-transformer_adl-piano-midi_GiantMIDI-Piano_17_20230106_no-primer.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio> 
     <audio id = "minor" controls loop style="display: none;">

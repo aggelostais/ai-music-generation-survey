@@ -129,6 +129,7 @@ function change_genre(){
 	if (genre > 4) document.getElementById('ge5').src = 'static/images/5w.png';
 	make_enable();
 }
+
 function change_rating(){
 	rating = document.querySelector('input[name="rating"]:checked').value;
 	document.getElementById('r1').src = 'static/images/1w.png';
@@ -229,6 +230,12 @@ function insert(){
 			document.getElementById('rh3').src = 'static/images/3.png';
 			document.getElementById('rh4').src = 'static/images/4.png';
 			document.getElementById('rh5').src = 'static/images/5.png';
+
+			document.getElementById('ge1').src = 'static/images/1.png';
+		    document.getElementById('ge2').src = 'static/images/2.png';
+			document.getElementById('ge3').src = 'static/images/3.png';
+			document.getElementById('ge4').src = 'static/images/4.png';
+			document.getElementById('ge5').src = 'static/images/5.png';
 
 			creator = 0;
 			similar_music = 0;
