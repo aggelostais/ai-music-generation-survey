@@ -22,7 +22,7 @@ function change_musician(){
 
 function check_musician(){
 	scale_check = document.querySelector('input[name="scale_check"]:checked').value;
-	// Musician hsan't been selected
+	// Musician has not been selected
 	if(musician==0) return;
 	if (scale_check== "major"){
 		musician='basic';
@@ -35,7 +35,7 @@ function check_musician(){
 
 function change_creator(){
 	creator = document.querySelector('input[name="creator"]:checked').value;
-	if (creator == 1) {
+	if (creator == 2) {
 		document.getElementById('human').src = 'static/images/humanw.png';
 		document.getElementById('ai').src = 'static/images/computer.png';
 	}
@@ -160,8 +160,7 @@ function insert(){
 	$.ajax({
         data : {
         	'musician' : musician,
-			'scale_check' : scale_check,
-        	'source' : audio.src.split("/")[5],
+        	'source' : songs[0],
         	'creator' : creator,
         	'similar_music' : similar_music,
 			'melody' : melody,
@@ -188,8 +187,18 @@ function insert(){
 	            return;
         	}
         	playbtn();
-			audio.src = "static/samples/" + songs[0];
-		    songs.shift();
+			$.ajax({
+				data : {
+					'sample' : songs[0]
+				},
+				url: "/download_sample",
+				type: "POST",
+				async: false,
+				success: function(resp){
+					audio.src = resp.link;
+					songs.shift();
+				}
+			});
 
 		    $('#next').prop("disabled", true);
 		    document.getElementById('human').src = 'static/images/human.png';

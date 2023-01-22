@@ -2,6 +2,7 @@
 *.log
 *.pyc
 __pycache__
+key.json
 
 # Environments 
 .env 

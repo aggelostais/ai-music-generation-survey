@@ -82,30 +82,6 @@
         <!-- Pro Music Knowledge Questions -->
         <div class="pro-question">
             <br>
-            <h4>Can you identify the music genre of the piece?</h4>
-            <label>
-                <input type="radio" name="genre" value="1" onclick="change_genre()">
-                <img id = "ge1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="2" onclick="change_genre()">
-                <img id = "ge2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="3" onclick="change_genre()">
-                <img id = "ge3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="4" onclick="change_genre()">
-                <img id = "ge4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
-            </label>
-            <label>
-                <input type="radio" name="genre" value="5" onclick="change_genre()">
-                <img id = "ge5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
-            </label>
-        </div>
-        <div class="pro-question">
-            <br>
             <h4>The melody progresses smoothly.</h4>
             <label>
                 <input type="radio" name="melody" value="1" onclick="change_melody()">
@@ -176,15 +152,39 @@
                 <img id = "rh5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
             </label>
         </div>
+        <div class="pro-question">
+            <br>
+            <h4>Can you identify the music genre of the piece?</h4>
+            <label>
+                <input type="radio" name="genre" value="1" onclick="change_genre()">
+                <img id = "ge1" src="{{ url_for('static', filename='images/1.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="2" onclick="change_genre()">
+                <img id = "ge2" src="{{ url_for('static', filename='images/2.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="3" onclick="change_genre()">
+                <img id = "ge3" src="{{ url_for('static', filename='images/3.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="4" onclick="change_genre()">
+                <img id = "ge4" src="{{ url_for('static', filename='images/4.png') }}" weight= "40" height= "40">
+            </label>
+            <label>
+                <input type="radio" name="genre" value="5" onclick="change_genre()">
+                <img id = "ge5" src="{{ url_for('static', filename='images/5.png') }}" weight= "40" height= "40">
+            </label>
+        </div>
         <div class="common-question">
             <br>
             <h4>Is this music composed by human or AI?</h4>
             <label>
-                <input type="radio" name="creator" value="1" onclick="change_creator()">
+                <input type="radio" name="creator" value="2" onclick="change_creator()">
                 <img id = "human" src="{{ url_for('static', filename='images/human.png') }}" weight= "40" height= "40">
             </label>
             <label>
-                <input type="radio" name="creator" value="2" onclick="change_creator()">
+                <input type="radio" name="creator" value="1" onclick="change_creator()">
                 <img id = "ai" src="{{ url_for('static', filename='images/computer.png') }}" weight= "40" height= "40">
             </label>
             <br>
@@ -224,17 +224,15 @@
     
     <div id = "content" style = "line-height: 0.9">
         <br>
-        <p>For more details about our work press <a href=''>here</a> !</p>
-        <p>This page is based in code from <a href='https://github.com/geofila/site'>Github</a>.</p>
+        <p>For more details about our work press <a href='https://github.com/aggelostais/piano-polyphonic-music-generation'target="_blank" rel="noopener noreferrer">here</a> !</p>
+        <p>Page Code on <a href='https://github.com/aggelostais/ai-music-generation-survey' target="_blank" rel="noopener noreferrer">Github</a>.</p>
     </div>
 
     </div>
     <div class="footer">
-        <!-- <button id = "help" type="button" onclick="help()"><span class="glyphicon glyphicon-info-sign"></span></button> -->
         <button id="help" class="btn btn-secondary btn-lg" onclick="help()">
             <span class="glyphicon glyphicon-info-sign"></span>
         </button>
-        <!-- <button id = "help" type="button" style="width: 20%; height: 20%;" ><span class="glyphicon glyphicon-info-sign" ></span></button> -->
     </div>
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
@@ -361,7 +359,7 @@
 
 
     <audio id = "melodies" controls loop style="display: none;">
-        <source src="{{ url_for('static', filename='music-transformer_adl-piano-midi_GiantMIDI-Piano_17_20230106_no-primer.mp3')}}" type="audio/mpeg">
+        <source src="{{ url_for('static', filename='samples/minor.mp3')}}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio> 
     <audio id = "minor" controls loop style="display: none;">
@@ -389,7 +387,6 @@
     var musician = 0;
     var scale_check=0;
 
-    
     window.onload = function () {
         $('#myModal').modal('show'); 
         $("#next").prop('disabled', true); 
@@ -402,8 +399,18 @@
             success: function(resp){
                 files = resp.files;
                 songs = shuffle(files);
-                audio.src = "static/samples/" + songs[0];
-                songs.shift();
+                $.ajax({
+                    data : {
+        	            'sample' : songs[0]
+                    },
+                    url: "/download_sample",
+                    type: "POST",
+                    async: false,
+                    success: function(resp){
+                        audio.src = resp.link;
+                        songs.shift();
+                    }
+                });
             }
         });
     };
@@ -458,7 +465,6 @@
         $('#myModal3').modal('hide');
         // For basic user hide pro questions
         if(musician=='basic'){
-            // $('#pro-question').modal('hide');
             var x = document.getElementsByClassName("pro-question");
             var i;
             for (i = 0; i < x.length; i++) {
@@ -474,7 +480,7 @@
     // Help Button
     function help(){
         $('#myModal').modal('show'); 
-        // Load the right musician picture based on what used has told
+        // Load the right musician picture based on music knowledge
         if (musician == "basic"){
             document.getElementById('m1').src = 'static/images/1b.png';
             document.getElementById('m5').src = 'static/images/5.png';
