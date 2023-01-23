@@ -2,20 +2,15 @@ from flask import Flask, render_template, request, jsonify
 from io_dict import *
 import threading
 import firebase
+import json
+
+def read_config(filepath):
+    with open(filepath) as json_file:
+        data = json.load(json_file)
+    return data
 
 # Set up Firebase Storage
-config = {
-  'apiKey': "",
-  'authDomain': "",
-  'projectId': "",
-  'storageBucket': "",
-  'messagingSenderId': "",
-  'appId': "",
-  'measurementId': "",
-  'databaseURL': "",
-  "serviceAccount": ""
-}
-
+config = read_config("config.json")
 firebase = firebase.initialize_app(config)
 storage = firebase.storage()
 

@@ -3,6 +3,7 @@
 *.pyc
 __pycache__
 key.json
+config.json
 
 # Environments 
 .env 
