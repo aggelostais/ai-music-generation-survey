@@ -1,3 +1,20 @@
+// Initialize the current question and total questions variables
+let currentQuestion = 0;
+const totalQuestions = 6;  
+    		
+// Select the progress bar, progress and percentage elements
+const progressBar = document.querySelector('.progress');
+const progress = progressBar.querySelector('.progress-moved .progress-bar');
+const percentage = progressBar.querySelector('.percentage');
+
+// Calculate the progress percentage
+const progressPercent = (currentQuestion / totalQuestions) * 100;
+// Update the width of the progress element
+progress.style.width = `${progressPercent}%`;
+// Update the text content of the percentage element
+percentage.textContent = `${Math.round(progressPercent)}%`;
+
+
 function playbtn(){
 	if (audio.duration > 0 && !audio.paused){
 		img.src = "static/images/play.png";
@@ -257,7 +274,18 @@ function insert(){
 			setTimeout(function (){
 				playbtn();
 				}, 200);
+
+			// Increment the current question
+			currentQuestion++;
+			// Calculate the progress percentage
+			const progressPercent = (currentQuestion / totalQuestions) * 100;
+			// Update the width of the progress element
+			progress.style.width = `${progressPercent}%`;
+			// Update the text content of the percentage element
+			percentage.textContent = `${Math.round(progressPercent)}%`;
+
         }
+		
     });
 }
 

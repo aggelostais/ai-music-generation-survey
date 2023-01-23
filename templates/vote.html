@@ -20,11 +20,16 @@
 
     <div class="text text-center" style="min-width: 600px;">
         <div id = "title">
-        <h2 style="display: inline">Help us make our </h2>
-        <h1 style="display: inline; color: #5382CA;">AI Piano Music </h1> <h2 style="display: inline"> even better!</h2>
+            <h2 style="display: inline">Help us make our </h2>
+            <h1 style="display: inline; color: #5382CA;">AI Piano Music </h1> <h2 style="display: inline"> even better!</h2>
         </div>
         <br>
         <div class = "block text-center" style="min-width: 300px;">
+            <div class="progress progress-moved">
+                <div class="progress-bar">
+                    <span class="percentage"></span>
+                </div>
+              </div>
         <h3>Just listen and answer the questions!</h3>
         
         <button type="button" class = 'btn-sm-block' onclick="playbtn()">
@@ -249,15 +254,14 @@
                 <div class="modal-body">
                     <h4>
                         Hello and welcome aboard!<br>
-                        This is a survey on AI Piano Music, 
+                        This is a small survey on AI Piano Music, 
                         helping out our confused music generation models decide 
                         which is the best. In other words, helping us evaluate 
-                        our models built for automatic piano music composition.
+                        our models built for automatic piano music composition, 
+                        just taking 5 minutes of your time. 
                         <br><br>
-                        Next, you will listen to parts of some piano songs. Each one of these 
-                        is human composed or generated from a different AI model, 
-                        trained on different training set and having different initial primer sequence.
-                        Don't worry if all these sound greek to you. We will sort it out together!
+                        Next, you will listen to parts of some piano songs, with each one
+                        being human composed or generated from a different AI model.
                         <br><br>
                     </h4>
                     <div style="text-align: center;">
@@ -303,7 +307,8 @@
                             </label>
                             <br><br>
                             <h4>Is this music major or minor?</h4>
-                            <h5>If you chose the unhappy face at the previous question,<br> you can just try your luck at this one.</h5>
+                            <h5>If you chose the unhappy face at the previous question,
+                                <br> you can just try your luck at this one.</h5>
                             <button type="button" class = 'center-block' onclick = 'play_helper()'>
                                 <img id = 'play_btn_minor' src="{{ url_for('static', filename='images/playb.png') }}" alt="Play Button"  height="30" width="30">
                             </button>
@@ -339,12 +344,11 @@
         
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <h4>At last, what you do on the main page is listen to parts of piano songs (by pressing the play button),
+                    <h4>At last, what you do on the main page is listen to parts of 6 piano songs (by pressing the play button),
                         answer some questions and express your agreement or disagreement with some statements. 
-                        After submitting your answers, the page will be refreshed and a new song will start playing.
-                    <br><br>We would appreciate if you evaluated 5-6 songs so you can hear different piano pieces you could like, 
-                    only taking up to 6 minutes of your time! 
-                    However, answering the questions for even one song is pretty important for us.<br><br>
+                        <br>After submitting your answers for each song, the page will be refreshed and a new song will start playing.
+                        You can always see your progress at the top of the page. 
+                    <br><br>
                     Thank you for your time!</h4>
                     <div style="text-align: center;">
                     <br>
@@ -387,6 +391,7 @@
     var musician = 0;
     var scale_check=0;
 
+
     window.onload = function () {
         $('#myModal').modal('show'); 
         $("#next").prop('disabled', true); 
@@ -424,7 +429,7 @@
         // If the song is playing pause it
         if(!audio.paused){
             play_helper();}
-        // If musical knowledge question hasn't been answered
+        // If any of the 2 questions has not been answered
         if (musician == 0 || scale_check==0) {
             $("#red").css("color","#8d0c0c");
             $('#red').text("Just another small step and off we go!")
