@@ -453,19 +453,34 @@ function insert(){
 			genre = 0;
 			emotions = 0;
 			rating=0;
-			setTimeout(function (){
-				playbtn();
-				}, 200);
 
 			// Increment the current question
 			currentQuestion++;
 			// Calculate the progress percentage
 			const progressPercent = (currentQuestion / totalQuestions) * 100;
-			// Update the width of the progress element
-			progress.style.width = `${progressPercent}%`;
-			// Update the text content of the percentage element
-			percentage.textContent = `${Math.round(progressPercent)}%`;
 
+			if(progressPercent<100){
+				// Update the text content of the percentage element
+				percentage.textContent = `${Math.round(progressPercent)}%`;
+				// Update the width of the progress element
+				progress.style.width = `${progressPercent}%`;
+			}
+			else if(progressPercent==100){
+				percentage.textContent =`Completed!`
+				// Update the width of the progress element
+				progress.style.width = `${progressPercent}%`;
+			}
+
+			// Thank You pop up, user completed the questions
+			if(currentQuestion==6){
+				$('#myModal4').modal('show');
+			}
+			// Start next song
+			else{			
+				setTimeout(function (){
+					playbtn();
+				}, 200);
+			}
         }
 		
     });

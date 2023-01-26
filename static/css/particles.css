@@ -28,7 +28,7 @@ canvas {
   padding: 2em 3em;
   min_width: 500px;
   /*background: rgba(0, 0, 0, 0.6); */
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'roboto', sans-serif;
   border-radius: 25px;
   color: #fff;
 }
@@ -40,7 +40,7 @@ canvas {
   min_width: 500px;
   padding: 2em 3em;
   background: rgba(5, 6, 13, .8); 
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'roboto', sans-serif;
   border-radius: 15px;
 }
 h1 {
