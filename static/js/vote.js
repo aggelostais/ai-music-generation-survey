@@ -65,99 +65,281 @@ function change_creator(){
 
 function change_similar_music(){
 	similar_music = document.querySelector('input[name="similar_music"]:checked').value;
-	document.getElementById('s1').src = 'static/images/1w.png';
-	document.getElementById('s2').src = 'static/images/2.png';
-	document.getElementById('s3').src = 'static/images/3.png';
-	document.getElementById('s4').src = 'static/images/4.png';
-	document.getElementById('s5').src = 'static/images/5.png';
-	if (similar_music > 1) document.getElementById('s2').src = 'static/images/2w.png';
-	if (similar_music > 2) document.getElementById('s3').src = 'static/images/3w.png';
-	if (similar_music > 3) document.getElementById('s4').src = 'static/images/4w.png';
-	if (similar_music > 4) document.getElementById('s5').src = 'static/images/5w.png';
+	if(similar_music==1){
+		document.getElementById('s1').src = 'static/images/1w.png';
+		document.getElementById('s2').src = 'static/images/2.png';
+		document.getElementById('s3').src = 'static/images/3.png';
+		document.getElementById('s4').src = 'static/images/4.png';
+		document.getElementById('s5').src = 'static/images/5.png';
+	}
+	else if (similar_music == 2) {
+		document.getElementById('s1').src = 'static/images/1.png';
+		document.getElementById('s2').src = 'static/images/2w.png';
+		document.getElementById('s3').src = 'static/images/3.png';
+		document.getElementById('s4').src = 'static/images/4.png';
+		document.getElementById('s5').src = 'static/images/5.png';
+	}
+	else if (similar_music == 3) {
+		document.getElementById('s1').src = 'static/images/1.png';
+		document.getElementById('s2').src = 'static/images/2.png';
+		document.getElementById('s3').src = 'static/images/3w.png';
+		document.getElementById('s4').src = 'static/images/4.png';
+		document.getElementById('s5').src = 'static/images/5.png';
+	}
+	else if (similar_music == 4) {
+		document.getElementById('s1').src = 'static/images/1.png';
+		document.getElementById('s2').src = 'static/images/2.png';
+		document.getElementById('s3').src = 'static/images/3.png';
+		document.getElementById('s4').src = 'static/images/4w.png';
+		document.getElementById('s5').src = 'static/images/5.png';
+	}
+	else if (similar_music == 5) {
+		document.getElementById('s1').src = 'static/images/1.png';
+		document.getElementById('s2').src = 'static/images/2.png';
+		document.getElementById('s3').src = 'static/images/3.png';
+		document.getElementById('s4').src = 'static/images/4.png';
+		document.getElementById('s5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 
 function change_emotions(){
 	emotions = document.querySelector('input[name="emotions"]:checked').value;
-	document.getElementById('e1').src = 'static/images/1w.png';
-	document.getElementById('e2').src = 'static/images/2.png';
-	document.getElementById('e3').src = 'static/images/3.png';
-	document.getElementById('e4').src = 'static/images/4.png';
-	document.getElementById('e5').src = 'static/images/5.png';
-	if (emotions > 1) document.getElementById('e2').src = 'static/images/2w.png';
-	if (emotions > 2) document.getElementById('e3').src = 'static/images/3w.png';
-	if (emotions > 3) document.getElementById('e4').src = 'static/images/4w.png';
-	if (emotions > 4) document.getElementById('e5').src = 'static/images/5w.png';
+	if(emotions==1){
+		document.getElementById('e1').src = 'static/images/1w.png';
+		document.getElementById('e2').src = 'static/images/2.png';
+		document.getElementById('e3').src = 'static/images/3.png';
+		document.getElementById('e4').src = 'static/images/4.png';
+		document.getElementById('e5').src = 'static/images/5.png';
+	}
+	else if (emotions == 2) {
+		document.getElementById('e1').src = 'static/images/1.png';
+		document.getElementById('e2').src = 'static/images/2w.png';
+		document.getElementById('e3').src = 'static/images/3.png';
+		document.getElementById('e4').src = 'static/images/4.png';
+		document.getElementById('e5').src = 'static/images/5.png';
+	}
+	else if (emotions == 3) {
+		document.getElementById('e1').src = 'static/images/1.png';
+		document.getElementById('e2').src = 'static/images/2.png';
+		document.getElementById('e3').src = 'static/images/3w.png';
+		document.getElementById('e4').src = 'static/images/4.png';
+		document.getElementById('e5').src = 'static/images/5.png';
+	}
+	else if (emotions == 4) {
+		document.getElementById('e1').src = 'static/images/1.png';
+		document.getElementById('e2').src = 'static/images/2.png';
+		document.getElementById('e3').src = 'static/images/3.png';
+		document.getElementById('e4').src = 'static/images/4w.png';
+		document.getElementById('e5').src = 'static/images/5.png';
+	}
+	else if (emotions == 5) {
+		document.getElementById('e1').src = 'static/images/1.png';
+		document.getElementById('e2').src = 'static/images/2.png';
+		document.getElementById('e3').src = 'static/images/3.png';
+		document.getElementById('e4').src = 'static/images/4.png';
+		document.getElementById('e5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 
 function change_melody(){
 	melody = document.querySelector('input[name="melody"]:checked').value;
-	document.getElementById('me1').src = 'static/images/1w.png';
-	document.getElementById('me2').src = 'static/images/2.png';
-	document.getElementById('me3').src = 'static/images/3.png';
-	document.getElementById('me4').src = 'static/images/4.png';
-	document.getElementById('me5').src = 'static/images/5.png';
-	if (melody > 1) document.getElementById('me2').src = 'static/images/2w.png';
-	if (melody > 2) document.getElementById('me3').src = 'static/images/3w.png';
-	if (melody > 3) document.getElementById('me4').src = 'static/images/4w.png';
-	if (melody > 4) document.getElementById('me5').src = 'static/images/5w.png';
+	if(melody==1){
+		document.getElementById('me1').src = 'static/images/1w.png';
+		document.getElementById('me2').src = 'static/images/2.png';
+		document.getElementById('me3').src = 'static/images/3.png';
+		document.getElementById('me4').src = 'static/images/4.png';
+		document.getElementById('me5').src = 'static/images/5.png';
+	}
+	else if (melody == 2) {
+		document.getElementById('me1').src = 'static/images/1.png';
+		document.getElementById('me2').src = 'static/images/2w.png';
+		document.getElementById('me3').src = 'static/images/3.png';
+		document.getElementById('me4').src = 'static/images/4.png';
+		document.getElementById('me5').src = 'static/images/5.png';
+	}
+	else if (melody == 3) {
+		document.getElementById('me1').src = 'static/images/1.png';
+		document.getElementById('me2').src = 'static/images/2.png';
+		document.getElementById('me3').src = 'static/images/3w.png';
+		document.getElementById('me4').src = 'static/images/4.png';
+		document.getElementById('me5').src = 'static/images/5.png';
+	}
+	else if (melody == 4) {
+		document.getElementById('me1').src = 'static/images/1.png';
+		document.getElementById('me2').src = 'static/images/2.png';
+		document.getElementById('me3').src = 'static/images/3.png';
+		document.getElementById('me4').src = 'static/images/4w.png';
+		document.getElementById('me5').src = 'static/images/5.png';
+	}
+	else if (melody == 5) {
+		document.getElementById('me1').src = 'static/images/1.png';
+		document.getElementById('me2').src = 'static/images/2.png';
+		document.getElementById('me3').src = 'static/images/3.png';
+		document.getElementById('me4').src = 'static/images/4.png';
+		document.getElementById('me5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 
 function change_harmony(){
 	harmony = document.querySelector('input[name="harmony"]:checked').value;
-	document.getElementById('h1').src = 'static/images/1w.png';
-	document.getElementById('h2').src = 'static/images/2.png';
-	document.getElementById('h3').src = 'static/images/3.png';
-	document.getElementById('h4').src = 'static/images/4.png';
-	document.getElementById('h5').src = 'static/images/5.png';
-	if (harmony > 1) document.getElementById('h2').src = 'static/images/2w.png';
-	if (harmony > 2) document.getElementById('h3').src = 'static/images/3w.png';
-	if (harmony > 3) document.getElementById('h4').src = 'static/images/4w.png';
-	if (harmony > 4) document.getElementById('h5').src = 'static/images/5w.png';
+	if(harmony==1){
+		document.getElementById('h1').src = 'static/images/1w.png';
+		document.getElementById('h2').src = 'static/images/2.png';
+		document.getElementById('h3').src = 'static/images/3.png';
+		document.getElementById('h4').src = 'static/images/4.png';
+		document.getElementById('h5').src = 'static/images/5.png';
+	}
+	else if (harmony == 2) {
+		document.getElementById('h1').src = 'static/images/1.png';
+		document.getElementById('h2').src = 'static/images/2w.png';
+		document.getElementById('h3').src = 'static/images/3.png';
+		document.getElementById('h4').src = 'static/images/4.png';
+		document.getElementById('h5').src = 'static/images/5.png';
+	}
+	else if (harmony == 3) {
+		document.getElementById('h1').src = 'static/images/1.png';
+		document.getElementById('h2').src = 'static/images/2.png';
+		document.getElementById('h3').src = 'static/images/3w.png';
+		document.getElementById('h4').src = 'static/images/4.png';
+		document.getElementById('h5').src = 'static/images/5.png';
+	}
+	else if (harmony == 4) {
+		document.getElementById('h1').src = 'static/images/1.png';
+		document.getElementById('h2').src = 'static/images/2.png';
+		document.getElementById('h3').src = 'static/images/3.png';
+		document.getElementById('h4').src = 'static/images/4w.png';
+		document.getElementById('h5').src = 'static/images/5.png';
+	}
+	else if (harmony == 5) {
+		document.getElementById('h1').src = 'static/images/1.png';
+		document.getElementById('h2').src = 'static/images/2.png';
+		document.getElementById('h3').src = 'static/images/3.png';
+		document.getElementById('h4').src = 'static/images/4.png';
+		document.getElementById('h5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 
 function change_rhythm(){
 	rhythm = document.querySelector('input[name="rhythm"]:checked').value;
-	document.getElementById('rh1').src = 'static/images/1w.png';
-	document.getElementById('rh2').src = 'static/images/2.png';
-	document.getElementById('rh3').src = 'static/images/3.png';
-	document.getElementById('rh4').src = 'static/images/4.png';
-	document.getElementById('rh5').src = 'static/images/5.png';
-	if (rhythm > 1) document.getElementById('rh2').src = 'static/images/2w.png';
-	if (rhythm > 2) document.getElementById('rh3').src = 'static/images/3w.png';
-	if (rhythm > 3) document.getElementById('rh4').src = 'static/images/4w.png';
-	if (rhythm > 4) document.getElementById('rh5').src = 'static/images/5w.png';
+	if(rhythm==1){
+		document.getElementById('rh1').src = 'static/images/1w.png';
+		document.getElementById('rh2').src = 'static/images/2.png';
+		document.getElementById('rh3').src = 'static/images/3.png';
+		document.getElementById('rh4').src = 'static/images/4.png';
+		document.getElementById('rh5').src = 'static/images/5.png';
+	}
+	else if (rhythm == 2) {
+		document.getElementById('rh1').src = 'static/images/1.png';
+		document.getElementById('rh2').src = 'static/images/2w.png';
+		document.getElementById('rh3').src = 'static/images/3.png';
+		document.getElementById('rh4').src = 'static/images/4.png';
+		document.getElementById('rh5').src = 'static/images/5.png';
+	}
+	else if (rhythm == 3) {
+		document.getElementById('rh1').src = 'static/images/1.png';
+		document.getElementById('rh2').src = 'static/images/2.png';
+		document.getElementById('rh3').src = 'static/images/3w.png';
+		document.getElementById('rh4').src = 'static/images/4.png';
+		document.getElementById('rh5').src = 'static/images/5.png';
+	}
+	else if (rhythm == 4) {
+		document.getElementById('rh1').src = 'static/images/1.png';
+		document.getElementById('rh2').src = 'static/images/2.png';
+		document.getElementById('rh3').src = 'static/images/3.png';
+		document.getElementById('rh4').src = 'static/images/4w.png';
+		document.getElementById('rh5').src = 'static/images/5.png';
+	}
+	else if (rhythm == 5) {
+		document.getElementById('rh1').src = 'static/images/1.png';
+		document.getElementById('rh2').src = 'static/images/2.png';
+		document.getElementById('rh3').src = 'static/images/3.png';
+		document.getElementById('rh4').src = 'static/images/4.png';
+		document.getElementById('rh5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 
 function change_genre(){
 	genre = document.querySelector('input[name="genre"]:checked').value;
-	document.getElementById('ge1').src = 'static/images/1w.png';
-	document.getElementById('ge2').src = 'static/images/2.png';
-	document.getElementById('ge3').src = 'static/images/3.png';
-	document.getElementById('ge4').src = 'static/images/4.png';
-	document.getElementById('ge5').src = 'static/images/5.png';
-	if (genre > 1) document.getElementById('ge2').src = 'static/images/2w.png';
-	if (genre > 2) document.getElementById('ge3').src = 'static/images/3w.png';
-	if (genre > 3) document.getElementById('ge4').src = 'static/images/4w.png';
-	if (genre > 4) document.getElementById('ge5').src = 'static/images/5w.png';
+	if(genre==1){
+		document.getElementById('ge1').src = 'static/images/1w.png';
+		document.getElementById('ge2').src = 'static/images/2.png';
+		document.getElementById('ge3').src = 'static/images/3.png';
+		document.getElementById('ge4').src = 'static/images/4.png';
+		document.getElementById('ge5').src = 'static/images/5.png';
+	}
+	else if (genre == 2) {
+		document.getElementById('ge1').src = 'static/images/1.png';
+		document.getElementById('ge2').src = 'static/images/2w.png';
+		document.getElementById('ge3').src = 'static/images/3.png';
+		document.getElementById('ge4').src = 'static/images/4.png';
+		document.getElementById('ge5').src = 'static/images/5.png';
+	}
+	else if (genre == 3) {
+		document.getElementById('ge1').src = 'static/images/1.png';
+		document.getElementById('ge2').src = 'static/images/2.png';
+		document.getElementById('ge3').src = 'static/images/3w.png';
+		document.getElementById('ge4').src = 'static/images/4.png';
+		document.getElementById('ge5').src = 'static/images/5.png';
+	}
+	else if (genre == 4) {
+		document.getElementById('ge1').src = 'static/images/1.png';
+		document.getElementById('ge2').src = 'static/images/2.png';
+		document.getElementById('ge3').src = 'static/images/3.png';
+		document.getElementById('ge4').src = 'static/images/4w.png';
+		document.getElementById('ge5').src = 'static/images/5.png';
+	}
+	else if (genre == 5) {
+		document.getElementById('ge1').src = 'static/images/1.png';
+		document.getElementById('ge2').src = 'static/images/2.png';
+		document.getElementById('ge3').src = 'static/images/3.png';
+		document.getElementById('ge4').src = 'static/images/4.png';
+		document.getElementById('ge5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 
 function change_rating(){
 	rating = document.querySelector('input[name="rating"]:checked').value;
-	document.getElementById('r1').src = 'static/images/1w.png';
-	document.getElementById('r2').src = 'static/images/2.png';
-	document.getElementById('r3').src = 'static/images/3.png';
-	document.getElementById('r4').src = 'static/images/4.png';
-	document.getElementById('r5').src = 'static/images/5.png';
-	if (rating > 1) document.getElementById('r2').src = 'static/images/2w.png';
-	if (rating > 2) document.getElementById('r3').src = 'static/images/3w.png';
-	if (rating > 3) document.getElementById('r4').src = 'static/images/4w.png';
-	if (rating > 4) document.getElementById('r5').src = 'static/images/5w.png';
+	if(rating==1){
+		document.getElementById('r1').src = 'static/images/1w.png';
+		document.getElementById('r2').src = 'static/images/2.png';
+		document.getElementById('r3').src = 'static/images/3.png';
+		document.getElementById('r4').src = 'static/images/4.png';
+		document.getElementById('r5').src = 'static/images/5.png';
+	}
+	else if (rating == 2) {
+		document.getElementById('r1').src = 'static/images/1.png';
+		document.getElementById('r2').src = 'static/images/2w.png';
+		document.getElementById('r3').src = 'static/images/3.png';
+		document.getElementById('r4').src = 'static/images/4.png';
+		document.getElementById('r5').src = 'static/images/5.png';
+	}
+	else if (rating == 3) {
+		document.getElementById('r1').src = 'static/images/1.png';
+		document.getElementById('r2').src = 'static/images/2.png';
+		document.getElementById('r3').src = 'static/images/3w.png';
+		document.getElementById('r4').src = 'static/images/4.png';
+		document.getElementById('r5').src = 'static/images/5.png';
+	}
+	else if (rating == 4) {
+		document.getElementById('r1').src = 'static/images/1.png';
+		document.getElementById('r2').src = 'static/images/2.png';
+		document.getElementById('r3').src = 'static/images/3.png';
+		document.getElementById('r4').src = 'static/images/4w.png';
+		document.getElementById('r5').src = 'static/images/5.png';
+	}
+	else if (rating == 5) {
+		document.getElementById('r1').src = 'static/images/1.png';
+		document.getElementById('r2').src = 'static/images/2.png';
+		document.getElementById('r3').src = 'static/images/3.png';
+		document.getElementById('r4').src = 'static/images/4.png';
+		document.getElementById('r5').src = 'static/images/5w.png';
+	}
 	make_enable();
 }
 

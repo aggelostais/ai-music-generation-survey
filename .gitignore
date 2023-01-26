@@ -4,6 +4,7 @@
 __pycache__
 key.json
 config.json
+help.css
 
 # Environments 
 .env 
