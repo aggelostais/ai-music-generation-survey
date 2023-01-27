@@ -29,7 +29,7 @@ Your feedback will be used to improve the AI model and to generate new and bette
 ## Requirements
 To run this project on your local machine, you will need to have Python and Flask installed. You will also need to create a Firebase project and connect it to the survey to store the data. A Vercel account is also required for deployment.
 
-## Running Locally
+## Installation
 * Clone the repository to your local machine
 ```
 git clone https://github.com/aggelostais/ai-music-generation-survey.git
@@ -45,13 +45,13 @@ creating a config.json configuration file.
 ```
 python index.py
 ```
-* The survey will be running on http://localhost:5000/
+* The survey will be running locally on http://localhost:5000/
 
 ## Deployment
 * Connect your Vercel account to your GitHub repository and follow the instructions to deploy the project.
 * You can follow this example https://vercel.com/templates/python/flask-hello-world
 
-## Improments
+## Future Developments
 - [ ] Add Previous button on introduction modals.
 - [ ] Add Finish button for futher contribution after 6 songs.
 
