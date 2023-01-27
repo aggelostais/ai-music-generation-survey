@@ -1,7 +1,7 @@
 <!-- [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask&demo-title=Flask%20%2B%20Vercel&demo-description=Use%20Flask%202%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png) -->
 
 # AI Music Generation Survey
-**<ai-music-generation-survey.vercel.app>**
+**http://ai-music-generation-survey.vercel.app**
 
 ## Introduction
 Welcome to our AI Piano Music survey! This is a part of our [Piano Polyphonic Music Generation](https://github.com/aggelostais/piano-polyphonic-music-generation) research project, aiming to create new and innovative ways to generate piano music using Artificial Intelligence. Our goal is to create music that is both expressive and emotionally engaging, and we need your help to make it even better.
@@ -20,11 +20,10 @@ We appreciate your time and effort in taking the survey and helping us make our 
 Your feedback will be used to improve the AI model and to generate new and better piano music. We will also use your feedback to understand the factors that affect the perception of the music and to identify areas where our models can be improved.
 
 ## Technical Specifications
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Code Source**    | The survey was built using code from https://github.com/geofila/site and further developed to include additional features and functionality.                                           |
-| **Implementation** | Flask web framework in Python                                                                                                                                                          |
-| **Storage**        | The music samples and data collected is stored in Firebase Storage.                                                                                                                    |
-| **Deployment**     | The survey is deployed on Vercel as a Serverless Function. It uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions. |
+* **Code Source**: The survey was built using code from https://github.com/geofila/site and further developed to include additional features and functionality.
+* **Implementation**: Flask web framework in Python 
+* **Storage**: The music samples and data collected is stored in Firebase Storage.
+* **Deployment**: The survey is deployed on Vercel as a Serverless Function. It uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
 
 ## Requirements
 To run this project on your local machine, you will need to have Python and Flask installed. You will also need to create a Firebase project and connect it to the survey to store the data. A Vercel account is also required for deployment.
