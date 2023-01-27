@@ -1,7 +1,8 @@
 <base target="_blank">
 
 # AI Music Generation Survey
-**[[Take the Survey](https://vercel.com/button)](http://ai-music-generation-survey.vercel.app)**
+
+[![Take the Survey](https://vercel.com/button)](http://ai-music-generation-survey.vercel.app)
 
 ## Introduction
 Welcome to our AI Piano Music survey! This is a part of our [Piano Polyphonic Music Generation](https://github.com/aggelostais/piano-polyphonic-music-generation) research project, aiming to create new and innovative ways to generate piano music using Artificial Intelligence. Our goal is to create music that is both expressive and emotionally engaging, and we need your help to make it even better.
