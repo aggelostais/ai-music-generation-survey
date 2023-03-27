@@ -52,6 +52,7 @@ python index.py
 * You can follow this example https://vercel.com/templates/python/flask-hello-world
 
 ## Future Developments
+- [ ] Add Qualitative Question with predifined options and enable addtional text comments.
 - [ ] Add Previous button on introduction modals.
 - [ ] Add Finish button & access to the finish modal for futher contribution after 6 songs.
 - [ ] Submit button activated only after completing one loop of the song.
